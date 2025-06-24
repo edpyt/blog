@@ -1,6 +1,0 @@
-[build]
-public-url = "/blog/"
-
-[[assets]]
-dir = "assets/blog"
-target = "assets/blog"
