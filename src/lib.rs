@@ -18,7 +18,7 @@ pub fn App() -> impl IntoView {
                     <div class="flex-none">
                         <ul class="menu menu-horizontal px-1">
                             <li>
-                                <A href="/blog">"Blog"</A>
+                                <A href="/articles">"Blog"</A>
                             </li>
                             <li>
                                 <A href="/">"About"</A>
@@ -30,7 +30,7 @@ pub fn App() -> impl IntoView {
 
             <main class="w-full text-center">
                 <Routes fallback=|| "Not found.">
-                    <Route path=path!("/blog") view=Blog />
+                    <Route path=path!("/articles") view=Blog />
                     <Route path=path!("/") view=About />
                 // TODO: <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> } />
                 </Routes>
