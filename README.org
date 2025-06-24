@@ -2,7 +2,7 @@
 
 ** development
    need to compile .css file with @tailwindcss/cli
-   #+begin_src bash
+   #+begin_src fish
    npm i -D tailwindcss daisyui
    npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css
    #+end_src
