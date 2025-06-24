@@ -28,12 +28,15 @@ pub fn App() -> impl IntoView {
                 </div>
             </nav>
 
-            <main class="w-full text-center">
-                <Routes fallback=|| "Not found.">
-                    <Route path=path!("/articles") view=Blog />
-                    <Route path=path!("/") view=About />
-                // TODO: <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> } />
-                </Routes>
+            <main class="w-full">
+                <div class="flex justify-center">
+                    <div class="py-6 prose lg:prose-lg">
+                        <Routes fallback=|| "Not found.">
+                            <Route path=path!("/articles") view=Blog />
+                            <Route path=path!("/*any") view=About />
+                        </Routes>
+                    </div>
+                </div>
             </main>
         </Router>
     }
