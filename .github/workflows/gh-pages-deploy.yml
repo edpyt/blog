@@ -18,7 +18,6 @@ concurrency:
 
 jobs:
   Github-Pages-Release:
-
     timeout-minutes: 10
 
     environment:
@@ -42,11 +41,9 @@ jobs:
       - name: lint
         run: cargo clippy & cargo fmt
 
-
       # If using tailwind...
       # - name: Download and install tailwindcss binary
       #   run: npm install -D tailwindcss && npx tailwindcss -i <INPUT/PATH.css> -o <OUTPUT/PATH.css>  # run tailwind
-
 
       - name: Download and install Trunk binary
         run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.18.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
@@ -59,13 +56,11 @@ jobs:
         # will obviously return error 404 not found.
         run: ./trunk build --release --public-url "${GITHUB_REPOSITORY#*/}"
 
-
       # Deploy to gh-pages branch
       # - name: Deploy 🚀
       #   uses: JamesIves/github-pages-deploy-action@v4
       #   with:
       #     folder: dist
-
 
       # Deploy with Github Static Pages
 
@@ -79,8 +74,8 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist dir
-          path: './dist'
+          path: "./dist"
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
