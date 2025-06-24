@@ -9,7 +9,7 @@ use pages::blog::Blog;
 #[component]
 pub fn App() -> impl IntoView {
     view! {
-        <Router>
+        <Router base="/blog/">
             <nav>
                 <div class="navbar bg-base-100 shadow-sm">
                     <div class="flex-1">
@@ -18,10 +18,10 @@ pub fn App() -> impl IntoView {
                     <div class="flex-none">
                         <ul class="menu menu-horizontal px-1">
                             <li>
-                                <A href="/articles">"Blog"</A>
+                                <A href="/blog/articles">"Blog"</A>
                             </li>
                             <li>
-                                <A href="/">"About"</A>
+                                <A href="/blog/">"About"</A>
                             </li>
                         </ul>
                     </div>
