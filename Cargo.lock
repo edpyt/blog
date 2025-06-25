@@ -142,6 +142,7 @@ dependencies = [
  "leptos_router",
  "orgize",
  "reqwest",
+ "uuid",
 ]
 
 [[package]]

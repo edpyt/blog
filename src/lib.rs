@@ -5,6 +5,7 @@ use leptos_router::components::{Route, Router, Routes, A};
 use leptos_router::path;
 use pages::about::About;
 use pages::blog::Blog;
+use pages::post::Post;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -18,7 +19,7 @@ pub fn App() -> impl IntoView {
                     <div class="flex-none">
                         <ul class="menu menu-horizontal px-1">
                             <li>
-                                <A href="articles">"Blog"</A>
+                                <A href="posts">"Blog"</A>
                             </li>
                             <li>
                                 <A href="">"About"</A>
@@ -32,7 +33,8 @@ pub fn App() -> impl IntoView {
                 <div class="flex justify-center">
                     <div class="py-6 prose lg:prose-lg">
                         <Routes fallback=|| "Not found.">
-                            <Route path=path!("/articles") view=Blog />
+                            <Route path=path!("/posts") view=Blog />
+                            <Route path=path!("/posts/:post_uuid") view=Post />
                             <Route path=path!("/*any") view=About />
                         </Routes>
                     </div>
