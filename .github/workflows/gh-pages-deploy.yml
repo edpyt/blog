@@ -18,7 +18,6 @@ concurrency:
 
 jobs:
   Github-Pages-Release:
-
     timeout-minutes: 10
 
     environment:
@@ -42,9 +41,8 @@ jobs:
       - name: lint
         run: cargo clippy & cargo fmt
 
-
       - name: Download and install tailwindcss binary
-        run: npm install -D tailwindcss daisyui && npx @tailwindcss/cli -i "./style/input.css" -o "./style/output.css"  # run tailwind
+        run: npm install -D tailwindcss daisyui && npx @tailwindcss/cli -i "./style/input.css" -o "./style/output.css" # run tailwind
 
       - name: Download and install Trunk binary
         run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.21.12/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
@@ -55,15 +53,15 @@ jobs:
         # this is necessary for github pages where the site is deployed to username.github.io/repo_name and all files must be requested
         # relatively as favicon.ico. if we skip public-url option, the href paths will instead request username.github.io/favicon.ico which
         # will obviously return error 404 not found.
-        run: ./trunk build --release --public-url "/blog/"
-
+        run: |
+          ./trunk build --release --public-url "/blog/"
+          cp ./dist/index.html ./dist/404.html
 
       # Deploy to gh-pages branch
       # - name: Deploy 🚀
       #   uses: JamesIves/github-pages-deploy-action@v4
       #   with:
       #     folder: dist
-
 
       # Deploy with Github Static Pages
 
@@ -77,7 +75,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist dir
-          path: './dist'
+          path: "./dist"
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
