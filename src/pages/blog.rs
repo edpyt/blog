@@ -28,6 +28,7 @@ pub fn Blog() -> impl IntoView {
     }
 }
 
+#[allow(dead_code)]
 fn retrieve_blog_posts_files() -> Vec<PathBuf> {
     let paths = fs::read_dir("./assets/posts/").unwrap();
     paths

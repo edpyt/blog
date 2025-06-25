@@ -4,6 +4,8 @@ use leptos_router::hooks::use_params;
 use leptos_router::params::Params;
 use uuid::Uuid;
 
+use crate::pages::comments::GiscusComments;
+
 #[derive(Params, PartialEq, Clone, Debug)]
 struct PostParams {
     post_uuid: Option<Uuid>,
@@ -21,5 +23,7 @@ pub fn Post() -> impl IntoView {
             None => Either::Left(view! { <p>"No post with this UUID was found."</p> }),
             Some(post_uuid) => Either::Right(view! { <p>"Found!"{post_uuid.to_string()}</p> }),
         }}
+
+        <GiscusComments />
     }
 }
