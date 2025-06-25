@@ -21,9 +21,15 @@ pub fn Post() -> impl IntoView {
     view! {
         {move || match post_uuid {
             None => Either::Left(view! { <p>"No post with this UUID was found."</p> }),
-            Some(post_uuid) => Either::Right(view! { <p>"Found!"{post_uuid.to_string()}</p> }),
-        }}
+            Some(post_uuid) => {
+                Either::Right(
+                    view! {
+                        <p>"Found!"{post_uuid.to_string()}</p>
 
-        <GiscusComments />
+                        <GiscusComments />
+                    },
+                )
+            }
+        }}
     }
 }
