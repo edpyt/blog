@@ -14,7 +14,9 @@ pub fn App() -> impl IntoView {
             <nav>
                 <div class="navbar bg-base-100 shadow-sm">
                     <div class="flex-1">
-                        <span class="text-xl font-bold">thoughts</span>
+                        <A href="">
+                            <span class="text-xl font-bold">"thoughts"</span>
+                        </A>
                     </div>
                     <div class="flex-none">
                         <ul class="menu menu-horizontal px-1">

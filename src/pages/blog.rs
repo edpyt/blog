@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_router::components::A;
 use orgize::Org;
 use uuid::Uuid;
 
@@ -11,15 +12,12 @@ pub fn Blog() -> impl IntoView {
     view! {
         <div inner_html=result></div>
 
-        <a
-            class="btn"
-            href=move || {
-                let buf: [u8; 16] = *b"abcdefghijklmnop";
-                let uuid = Uuid::new_v8(buf);
-                format!("posts/{}", uuid)
-            }
-        >
-            "click this post"
-        </a>
+        <A href=move || {
+            let buf: [u8; 16] = *b"abcdefghijklmnop";
+            let uuid = Uuid::new_v8(buf);
+            uuid.to_string()
+        }>
+            <span class="btn">"click this post"</span>
+        </A>
     }
 }
