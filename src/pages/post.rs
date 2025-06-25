@@ -13,7 +13,7 @@ struct PostParams {
 pub fn Post() -> impl IntoView {
     let params = use_params::<PostParams>();
     let post_uuid = params
-        .get()
+        .get_untracked()
         .map(|params| params.post_uuid.unwrap_or_default())
         .ok();
     view! {

@@ -3,7 +3,7 @@ use leptos::prelude::*;
 #[component]
 pub fn About() -> impl IntoView {
     view! {
-        <h2>Just sharing my thoughts here.</h2>
+        <h2>"Just sharing my thoughts here."</h2>
         <div class="flex flex-col justify-center pt-10">
             <a class="btn bg-white text-black border-[#e5e5e5]" href="mailto:edrsa1321s@gmail.com">
                 <svg
