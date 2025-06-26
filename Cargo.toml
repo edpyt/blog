@@ -10,4 +10,3 @@ leptos = { version = "0.8.2", features = ["csr", "nightly"] }
 leptos_router = "0.8.2"
 orgize = "0.9.0"
 reqwest = "0.12.20"
-uuid = { version = "1.17.0", features = ["v8"] }

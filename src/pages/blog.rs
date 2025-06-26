@@ -3,7 +3,6 @@ use std::{fs, path::PathBuf};
 use leptos::prelude::*;
 use leptos_router::components::A;
 use orgize::Org;
-use uuid::Uuid;
 
 #[component]
 pub fn Blog() -> impl IntoView {
@@ -16,13 +15,9 @@ pub fn Blog() -> impl IntoView {
     view! {
         <div inner_html=result></div>
 
-        <div>{paths.into_iter().map(|path| view! { <p>"file"</p> }).collect::<Vec<_>>()}</div>
+        <div>{paths.into_iter().map(|_path| view! { <p>"file"</p> }).collect::<Vec<_>>()}</div>
 
-        <A href=move || {
-            let buf: [u8; 16] = *b"abcdefghijklmnop";
-            let uuid = Uuid::new_v8(buf);
-            uuid.to_string()
-        }>
+        <A href="first-test-post">
             <span class="btn">"click this post"</span>
         </A>
     }
