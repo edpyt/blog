@@ -33,7 +33,7 @@ pub fn App() -> impl IntoView {
 
             <main class="w-full">
                 <div class="flex justify-center">
-                    <div class="py-6 prose lg:prose-lg">
+                    <div class="w-2/5 py-6 text-center prose lg:prose-lg">
                         <Routes fallback=|| "Not found.">
                             <Route path=path!("/posts") view=Blog />
                             <Route path=path!("/posts/:post_uuid") view=Post />
