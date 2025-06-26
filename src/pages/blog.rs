@@ -17,8 +17,7 @@ pub fn Blog() -> impl IntoView {
     }
 }
 
-async fn load_data(posts_fps: RwSignal<Vec<String>>) -> Result<()> {
+async fn load_data(_posts_fps: RwSignal<Vec<String>>) -> Result<()> {
     reqwest::get("/posts/").await?;
-    posts_fps.update(vec![]);
     Ok(())
 }
