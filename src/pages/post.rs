@@ -2,6 +2,7 @@ use leptos::either::Either;
 use leptos::prelude::*;
 use leptos_router::hooks::use_params;
 use leptos_router::params::Params;
+use orgize::Org;
 
 use crate::pages::comments::GiscusComments;
 
@@ -20,9 +21,18 @@ pub fn Post() -> impl IntoView {
 
     match post_uuid {
         None => Either::Left(view! { <p>"No post with this UUID was found."</p> }),
-        Some(post_uuid) => Either::Right(view! {
-            {post_uuid}
-            <GiscusComments />
-        }),
+        Some(post_uuid) => {
+            let mut writer = Vec::new();
+            Org::parse("* title\ntest").write_html(&mut writer).unwrap();
+            let result = String::from_utf8(writer).unwrap();
+
+            Either::Right(view! {
+                {post_uuid}
+
+                <div inner_html=result></div>
+
+                <GiscusComments />
+            })
+        }
     }
 }

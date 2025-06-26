@@ -138,6 +138,7 @@ checksum = "1b8e56985ec62d17e9c1001dc89c88ecd7dc08e47eba5ec7c29c7b5eeecde967"
 name = "blog"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "leptos",
  "leptos_router",
  "orgize",
@@ -1696,7 +1697,9 @@ dependencies = [
  "base64",
  "bytes",
  "encoding_rs",
+ "futures-channel",
  "futures-core",
+ "futures-util",
  "h2",
  "http",
  "http-body",
