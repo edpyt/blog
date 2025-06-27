@@ -1,5 +1,5 @@
 use anyhow::Result;
-use leptos::prelude::*;
+use leptos::{logging, prelude::*};
 use leptos_router::components::A;
 
 #[component]
@@ -7,7 +7,12 @@ pub fn Blog() -> impl IntoView {
     let posts_fps: RwSignal<Vec<String>> = RwSignal::new(vec![]);
 
     LocalResource::new(
-        move || load_data(posts_fps)
+        move || async move {match load_data(posts_fps).await {
+            Ok(posts) => logging::log!("{:?}",posts),
+            Err(e) => {
+                logging::error!("Failed to get posts! {e:?}")
+            }
+        }}
     );
 
     view! {
@@ -18,6 +23,6 @@ pub fn Blog() -> impl IntoView {
 }
 
 async fn load_data(_posts_fps: RwSignal<Vec<String>>) -> Result<()> {
-    reqwest::get("/posts/").await?;
+    reqwest::get("http://localhost:8080/posts/").await?;
     Ok(())
 }

@@ -8,26 +8,26 @@ use crate::pages::comments::GiscusComments;
 
 #[derive(Params, PartialEq, Clone, Debug)]
 struct PostParams {
-    post_uuid: Option<String>,
+    post_title: Option<String>,
 }
 
 #[component]
 pub fn Post() -> impl IntoView {
     let params = use_params::<PostParams>();
-    let post_uuid = params
+    let post_title = params
         .get_untracked()
-        .map(|params| params.post_uuid.unwrap_or_default())
+        .map(|params| params.post_title.unwrap_or_default())
         .ok();
 
-    match post_uuid {
-        None => Either::Left(view! { <p>"No post with this UUID was found."</p> }),
-        Some(post_uuid) => {
+    match post_title {
+        None => Either::Left(view! { <p>"No post with provided title was found."</p> }),
+        Some(post_title) => {
             let mut writer = Vec::new();
             Org::parse("* title\ntest").write_html(&mut writer).unwrap();
             let result = String::from_utf8(writer).unwrap();
 
             Either::Right(view! {
-                {post_uuid}
+                {post_title}
 
                 <div inner_html=result></div>
 
