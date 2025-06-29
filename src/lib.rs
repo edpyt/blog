@@ -1,11 +1,15 @@
 mod pages;
 
+use include_dir::include_dir;
+use include_dir::Dir;
 use leptos::prelude::*;
 use leptos_router::components::{Route, Router, Routes, A};
 use leptos_router::path;
 use pages::about::About;
 use pages::blog::Blog;
 use pages::post::Post;
+
+pub static POSTS_DIR: Dir = include_dir!("$CARGO_MANIFEST_DIR/assets/posts");
 
 #[component]
 pub fn App() -> impl IntoView {
