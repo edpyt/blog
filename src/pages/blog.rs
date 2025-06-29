@@ -1,5 +1,6 @@
 use include_dir::File;
 use leptos::prelude::*;
+use leptos_router::components::A;
 use orgize::Org;
 
 use crate::POSTS_DIR;
@@ -10,18 +11,34 @@ pub fn Blog() -> impl IntoView {
         .files()
         .map(|file| {
             (
-                file.path().file_name().expect("can't retrieve file name"),
+                file.path()
+                    .file_name()
+                    .expect("can't retrieve file name")
+                    .to_string_lossy(),
                 parse_post_file_to_orgmode_html(file),
             )
         })
         .collect::<Vec<_>>();
 
     view! {
-        {posts.into_iter().map(|(_post_fname, post_html)| view! {
-
-            <div inner_html=post_html></div>
+        {posts.into_iter().map(|(post_fname, _post_html)| view! {
+        <div class="py-6 flex flex-row gap-6 md:gap-10 items-start">
+            <div class="flex flex-col gap-4">
+                <h2 class="text-2xl font-bold">
+                    <A href=post_fname.clone()>
+                        <span class="hover:underline">
+                            {post_fname}
+                        </span>
+                    </A>
+                </h2>
+                <p class="text-sm text-base-content/70">
+                    "Lorum Ipsum Dolar Sit Amet"
+                </p>
+            </div>
+        </div>
 
         }).collect::<Vec<_>>()}
+
     }
 }
 
