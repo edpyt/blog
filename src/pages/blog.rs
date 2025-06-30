@@ -1,3 +1,5 @@
+use std::time::SystemTime;
+
 use include_dir::File;
 use leptos::prelude::*;
 use leptos_router::components::A;
@@ -7,47 +9,72 @@ use crate::POSTS_DIR;
 
 #[component]
 pub fn Blog() -> impl IntoView {
-    let posts = POSTS_DIR
+    let mut posts: Vec<OrgPost> = POSTS_DIR
         .files()
-        .map(|file| {
-            (
-                file.path()
-                    .file_name()
-                    .expect("can't retrieve file name")
-                    .to_string_lossy(),
-                parse_post_file_to_orgmode_html(file),
-            )
-        })
-        .collect::<Vec<_>>();
+        .filter_map(|file| file.try_into().ok())
+        .collect();
+    posts.sort_by(|a, b| b.created.cmp(&a.created));
 
     view! {
-        {posts.into_iter().map(|(post_fname, _post_html)| view! {
-        <div class="py-6 flex flex-row gap-6 md:gap-10 items-start">
-            <div class="flex flex-col gap-4">
-                <h2 class="text-2xl font-bold">
-                    <A href=post_fname.clone()>
-                        <span class="hover:underline">
-                            {post_fname}
-                        </span>
-                    </A>
-                </h2>
-                <p class="text-sm text-base-content/70">
-                    "Lorum Ipsum Dolar Sit Amet"
-                </p>
-            </div>
-        </div>
-
-        }).collect::<Vec<_>>()}
-
+        {posts
+            .into_iter()
+            .map(|org_post| {
+                view! {
+                    <div class="py-6 flex flex-row gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-2xl font-bold">
+                                <A href=org_post.filename>
+                                    <span class="hover:underline">{org_post.title}</span>
+                                </A>
+                            </h2>
+                            <p class="text-sm text-base-content/70">{org_post.description}</p>
+                        </div>
+                    </div>
+                }
+            })
+            .collect::<Vec<_>>()}
     }
 }
 
-fn parse_post_file_to_orgmode_html(file: &File) -> String {
-    let mut writer = vec![];
+struct OrgPost<'a> {
+    filename: &'a str,
+    created: SystemTime,
+    title: String,
+    description: String,
+    content_html: String,
+}
 
-    Org::parse(file.contents_utf8().unwrap())
-        .write_html(&mut writer)
-        .unwrap_or_else(|_| panic!("Can't parse {file:?} as orgmode file"));
+impl<'a> TryFrom<&File<'a>> for OrgPost<'a> {
+    type Error = &'static str;
 
-    String::from_utf8(writer).unwrap()
+    fn try_from(file: &File<'a>) -> Result<Self, Self::Error> {
+        let filename = file
+            .path()
+            .file_name()
+            .expect("can't retrieve file name")
+            .to_str()
+            .unwrap();
+        let org = Org::parse(file.contents_utf8().unwrap());
+        let created = file.metadata().unwrap().created();
+
+        Ok(OrgPost::from_orgize_obj(org, filename, created).unwrap())
+    }
+}
+
+impl<'a> OrgPost<'a> {
+    fn from_orgize_obj(org: Org, filename: &'a str, created: SystemTime) -> Option<Self> {
+        let properties = org.document().properties()?;
+
+        let title = properties.get("TITLE")?.to_string();
+        let description = properties.get("DESCRIPTION")?.to_string();
+        let content_html = org.to_html();
+
+        Some(OrgPost {
+            filename,
+            title,
+            description,
+            content_html,
+            created,
+        })
+    }
 }

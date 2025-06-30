@@ -1,3 +1,8 @@
+:PROPERTIES:
+:TITLE: Test orgmode file
+:DESCRIPTION: Superior test file
+:END:
+
 This is the example org-mode file used for the Denver Emacs org-mode
 introduction talk. Everything in this talk should work without any custom
 settings or installation with a reasonably recent Emacs version.

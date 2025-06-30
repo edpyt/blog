@@ -22,9 +22,7 @@ pub fn Post() -> impl IntoView {
     match post_title {
         None => Either::Left(view! { <p>"No post with provided title was found."</p> }),
         Some(post_title) => {
-            let mut writer = Vec::new();
-            Org::parse("* title\ntest").write_html(&mut writer).unwrap();
-            let result = String::from_utf8(writer).unwrap();
+            let result = Org::parse("* title\ntest").to_html();
 
             Either::Right(view! {
                 {post_title}
