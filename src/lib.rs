@@ -1,3 +1,4 @@
+mod core;
 mod pages;
 
 use include_dir::include_dir;
@@ -40,7 +41,7 @@ pub fn App() -> impl IntoView {
                     <div class="w-2/5 py-6 prose lg:prose-lg">
                         <Routes fallback=|| "Not found.">
                             <Route path=path!("/posts") view=Blog />
-                            <Route path=path!("/posts/:post_title") view=Post />
+                            <Route path=path!("/posts/:post_filename") view=Post />
                             <Route path=path!("/*any") view=About />
                         </Routes>
                     </div>

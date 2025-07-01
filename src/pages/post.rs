@@ -2,35 +2,42 @@ use leptos::either::Either;
 use leptos::prelude::*;
 use leptos_router::hooks::use_params;
 use leptos_router::params::Params;
-use orgize::Org;
 
+use crate::core::OrgPost;
 use crate::pages::comments::GiscusComments;
+use crate::POSTS_DIR;
 
 #[derive(Params, PartialEq, Clone, Debug)]
 struct PostParams {
-    post_title: Option<String>,
+    post_filename: Option<String>,
 }
 
 #[component]
 pub fn Post() -> impl IntoView {
     let params = use_params::<PostParams>();
-    let post_title = params
+    let post_filename = params
         .get_untracked()
-        .map(|params| params.post_title.unwrap_or_default())
-        .ok();
+        .map(|params| params.post_filename.unwrap_or_default())
+        .expect("Can't retrieve post filename param");
 
-    match post_title {
-        None => Either::Left(view! { <p>"No post with provided title was found."</p> }),
-        Some(post_title) => {
-            let result = Org::parse("* title\ntest").to_html();
+    match POSTS_DIR.get_file(&post_filename) {
+        None => Either::Left(view! { <p>"No post with provided filename was found."</p> }),
+        Some(post_file) => {
+            let result_view = match OrgPost::try_from(post_file) {
+                Ok(org_post) => view! {
+                    <div inner_html=org_post.content_html()></div>
 
-            Either::Right(view! {
-                {post_title}
+                    <GiscusComments />
+                }
+                .into_any(),
+                Err(_) => view! {
+                    "Can't parse file "
+                    {post_filename}
+                }
+                .into_any(),
+            };
 
-                <div inner_html=result></div>
-
-                <GiscusComments />
-            })
+            Either::Right(result_view)
         }
     }
 }

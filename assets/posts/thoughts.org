@@ -3,3 +3,6 @@
 :DESCRIPTION: Yeeep. just a new thought here ¯\_(ツ)_/¯
 :END:
 * So.. here is a new thought!
+  what should i write here??
+** maybe like this
+*** and like that
