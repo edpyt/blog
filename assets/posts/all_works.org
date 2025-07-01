@@ -14,3 +14,5 @@
 **** Have a good day! 
 
 ***** just testing 
+test img: \\
+[[https://www.rust-lang.org/static/images/rust-logo-blk.svg]]
