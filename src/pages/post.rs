@@ -25,6 +25,15 @@ pub fn Post() -> impl IntoView {
         Some(post_file) => {
             let result_view = match OrgPost::try_from(post_file) {
                 Ok(org_post) => view! {
+                    <div class="flex justify-end">
+                        <p
+                            class="text-sm text-base-content/70"
+                            title="UTC"
+                        >
+                            {org_post.created.format("%Y-%m-%d %H:%M:%S").to_string()}
+                        </p>
+                    </div>
+
                     <div inner_html=org_post.content_html()></div>
 
                     <GiscusComments />

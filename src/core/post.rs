@@ -1,12 +1,13 @@
 use std::time::SystemTime;
 
+use chrono::{DateTime, Utc};
 use include_dir::File;
 use orgize::Org;
 
 pub struct OrgPost<'a> {
     org: Org,
     pub filename: &'a str,
-    pub created: SystemTime,
+    pub created: DateTime<Utc>,
     pub title: String,
     pub description: String,
 }
@@ -40,7 +41,7 @@ impl<'a> OrgPost<'a> {
             filename,
             title,
             description,
-            created,
+            created: created.into(),
         })
     }
 

@@ -1,0 +1,29 @@
+:PROPERTIES:
+:TITLE: Thought of 2025-07-02
+:DESCRIPTION: Idk... daily thoughts?
+:END:
+
+* Updated post view
+  added the created date and time string in the upper-right corner 
+
+
+* thought of [[https://docs.rs/orgize/latest/orgize/][orgize]]
+
+  I don't really like the export to html in particular. \\
+  I might need to add my own export ([[https://github.com/PoiScript/orgize#render-to-html]])...💀💀💀\\
+  but crate is still very cool!
+* What i do now
+  i go to help my brotha to build his blog site\\
+  [[https://github.com/rafailmdzdv/blog]]
+
+  🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
+
+* daily photos
+
+  \\
+
+  [[https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/GPD_Win.png/1024px-GPD_Win.png]]
+
+  \\
+  [[https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/1994_Chevrolet_Astro%2C_front_%282%29_6.14.21.jpg/1200px-1994_Chevrolet_Astro%2C_front_%282%29_6.14.21.jpg]]
+
