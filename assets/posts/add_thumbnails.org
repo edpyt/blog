@@ -1,7 +1,7 @@
 :PROPERTIES:
 :TITLE: Added thumbnails
 :DESCRIPTION: 🤫🤫🤫🤫🤫
-:THUMBNAIL: /images/coding.png
+:THUMBNAIL: images/coding.png
 :END:
 
 * just added thumbnails 

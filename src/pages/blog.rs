@@ -23,7 +23,7 @@ pub fn Blog() -> impl IntoView {
                                 org_post
                                     .thumbnail
                                     .clone()
-                                    .unwrap_or("/images/pride-trans-thumb.png".to_string())
+                                    .unwrap_or("images/pride-trans-thumb.png".to_string())
                             }
                         />
                         <div class="flex flex-col gap-4">
