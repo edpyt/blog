@@ -10,6 +10,7 @@ pub struct OrgPost<'a> {
     pub created: DateTime<Utc>,
     pub title: String,
     pub description: String,
+    pub thumbnail: Option<String>,
 }
 
 impl<'a> TryFrom<&File<'a>> for OrgPost<'a> {
@@ -35,6 +36,9 @@ impl<'a> OrgPost<'a> {
 
         let title = properties.get("TITLE")?.to_string();
         let description = properties.get("DESCRIPTION")?.to_string();
+        let thumbnail = properties
+            .get("THUMBNAIL")
+            .map(|thumbnail| thumbnail.to_string());
 
         Some(OrgPost {
             org,
@@ -42,6 +46,7 @@ impl<'a> OrgPost<'a> {
             title,
             description,
             created: created.into(),
+            thumbnail,
         })
     }
 

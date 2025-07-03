@@ -29,8 +29,9 @@ pub fn Post() -> impl IntoView {
                         <div inner_html=org_post.content_html()></div>
                         <div>
                             <div class="flex justify-end">
-                                <p class="text-sm text-base-content/70" title="UTC">
+                                <p class="text-sm text-base-content/70">
                                     {org_post.created.format("%Y-%m-%d %H:%M:%S").to_string()}
+                                    " (UTC)"
                                 </p>
                             </div>
 
