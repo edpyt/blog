@@ -13,7 +13,7 @@
   today i discovered new application + browser extenstion for block distractions web-sites and apps  \\
   ... and it works on Linux! \\
   check this:  \\
-  [[/images/digital_zen.png]]
+  [[../images/digital_zen.png]]
 
   \\
   Learn more about it: [[https://www.digitalzen.app/]]
