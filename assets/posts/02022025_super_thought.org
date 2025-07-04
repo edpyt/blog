@@ -1,6 +1,7 @@
 :PROPERTIES:
 :TITLE: Thought of 2025-07-02
 :DESCRIPTION: Idk... daily thoughts?
+:CREATED: 2025-07-02 13:49 
 :END:
 
 * Updated post view

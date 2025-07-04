@@ -31,7 +31,6 @@ pub fn Post() -> impl IntoView {
                             <div class="flex justify-end">
                                 <p class="text-sm text-base-content/70">
                                     {org_post.created.format("%Y-%m-%d %H:%M:%S").to_string()}
-                                    " (UTC)"
                                 </p>
                             </div>
 

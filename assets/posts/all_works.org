@@ -1,6 +1,7 @@
 :PROPERTIES:
 :TITLE: My blog website works now
 :DESCRIPTION: I'm surprised it all works!
+:CREATED: 2025-07-01 14:27
 :END:
 
 * Heh Really shocked

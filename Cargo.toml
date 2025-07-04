@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.98"
 chrono = "0.4.41"
-include_dir = { version = "0.7.4", features = ["metadata"] }
+include_dir = { version = "0.7.4" }
 leptos = { version = "0.8.2", features = ["csr", "nightly"] }
 leptos_router = "0.8.2"
 orgize = { version = "=0.10.0-alpha.10" }
