@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
 
             <main class="w-full">
                 <div class="flex justify-center">
-                    <div class="w-2/5 py-6 prose lg:prose-lg">
+                    <div class="w-full max-w-3xl flex-grow p-4 pb-10">
                         <Routes fallback=|| "Not found.">
                             <Route path=path!("/posts") view=Blog />
                             <Route path=path!("/posts/:post_filename") view=Post />
