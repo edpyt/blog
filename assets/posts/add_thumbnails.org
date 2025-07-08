@@ -2,7 +2,7 @@
 :TITLE: Added thumbnails
 :DESCRIPTION: 🤫🤫🤫🤫🤫
 :CREATED: 2025-07-03 14:26
-:THUMBNAIL: images/coding.png
+:THUMBNAIL: https://raw.githubusercontent.com/edpyt/blog/refs/heads/main/assets/images/coding.png
 :END:
 
 * just added thumbnails 
@@ -14,7 +14,7 @@
   today i discovered new application + browser extenstion for block distractions web-sites and apps  \\
   ... and it works on Linux! \\
   check this:  \\
-  [[../images/digital_zen.png]]
+  [[https://raw.githubusercontent.com/edpyt/blog/refs/heads/main/assets/images/digital_zen.png]]
 
   \\
   Learn more about it: [[https://www.digitalzen.app/]]
