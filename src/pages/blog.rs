@@ -29,12 +29,17 @@ pub fn Blog() -> impl IntoView {
                                     )
                             }
                         />
-                        <div class="flex flex-col gap-4">
-                            <h2 class="text-2xl font-bold">
-                                <A href=org_post.filename>
-                                    <span class="hover:underline">{org_post.title}</span>
-                                </A>
-                            </h2>
+                        <div class="w-full flex flex-col gap-4">
+                            <div class="flex justify-between">
+                                <h2 class="text-2xl font-bold">
+                                    <A href=org_post.filename>
+                                        <span class="hover:underline">{org_post.title}</span>
+                                    </A>
+                                </h2>
+                                <span class="text-end text-sm text-base-content/70">
+                                    {org_post.created.format("%Y-%m-%d %H:%M:%S").to_string()}
+                                </span>
+                            </div>
                             <p class="text-sm text-base-content/70">{org_post.description}</p>
                         </div>
                     </div>
