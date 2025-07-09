@@ -1,3 +1,4 @@
+mod components;
 mod core;
 mod pages;
 
@@ -23,6 +24,7 @@ pub fn App() -> impl IntoView {
                             <span class="text-xl font-bold">"thoughts"</span>
                         </A>
                     </div>
+
                     <div class="flex-none">
                         <ul class="menu menu-horizontal px-1">
                             <li>

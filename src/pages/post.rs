@@ -3,8 +3,8 @@ use leptos::prelude::*;
 use leptos_router::hooks::use_params;
 use leptos_router::params::Params;
 
+use crate::components::GiscusComments;
 use crate::core::OrgPost;
-use crate::pages::comments::GiscusComments;
 use crate::POSTS_DIR;
 
 #[derive(Params, PartialEq, Clone, Debug)]
