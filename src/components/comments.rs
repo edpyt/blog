@@ -16,7 +16,7 @@ pub fn GiscusComments() -> impl IntoView {
             data-reactions-enabled="1"
             data-emit-metadata="0"
             data-input-position="bottom"
-            data-theme="preferred_color_scheme"
+            data-theme="catppuccin_mocha"
             data-lang="en"
             crossorigin="anonymous"
             async
