@@ -17,7 +17,7 @@ pub static POSTS_DIR: Dir = include_dir!("$CARGO_MANIFEST_DIR/assets/posts");
 pub fn App() -> impl IntoView {
     view! {
         <Router base="/blog">
-            <nav>
+            <nav class="sticky top-0 z-50">
                 <div class="navbar bg-base-100 shadow-sm">
                     <div class="flex-1">
                         <A href="posts">
@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
                 </div>
             </nav>
 
-            <main class="w-full">
+            <main class="w-full relative">
                 <div class="flex justify-center">
                     <div class="w-full max-w-3xl flex-grow p-4 pb-10">
                         <Routes fallback=|| "Not found.">

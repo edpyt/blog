@@ -32,6 +32,7 @@ impl<'a> OrgPost<'a> {
     fn from_orgize_obj(org: Org, filename: &'a str) -> Option<Self> {
         let properties = org.document().properties()?;
 
+        // NOTE: required
         let title = properties.get("TITLE")?.to_string();
         let description = properties.get("DESCRIPTION")?.to_string();
         let created = DateTime::from_naive_utc_and_offset(
@@ -40,6 +41,7 @@ impl<'a> OrgPost<'a> {
             Utc,
         );
 
+        // NOTE: optional
         let thumbnail = match properties.get("THUMBNAIL") {
             Some(token) => token.to_string(),
             None => format!("{IMAGES_CDN}{DEFAULT_THUMBNAIL}"),
