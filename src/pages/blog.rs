@@ -17,18 +17,7 @@ pub fn Blog() -> impl IntoView {
             .map(|org_post| {
                 view! {
                     <div class="py-6 flex flex-row gap-6 md:gap-10 items-start">
-                        <img
-                            class="h-25 w-25 object-cover"
-                            src=move || {
-                                org_post
-                                    .thumbnail
-                                    .clone()
-                                    .unwrap_or(
-                                        "https://raw.githubusercontent.com/edpyt/blog/refs/heads/main/assets/images/pride-trans-thumb.png"
-                                            .to_string(),
-                                    )
-                            }
-                        />
+                        <img class="h-25 w-25 object-cover" src=org_post.thumbnail />
                         <div class="w-full flex flex-col gap-4">
                             <div class="flex justify-between">
                                 <h2 class="text-2xl font-bold">

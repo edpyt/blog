@@ -1,3 +1,4 @@
+use crate::core::constants::{DEFAULT_THUMBNAIL, IMAGES_CDN};
 use chrono::{DateTime, NaiveDateTime, Utc};
 use include_dir::File;
 use orgize::Org;
@@ -8,7 +9,7 @@ pub struct OrgPost<'a> {
     pub created: DateTime<Utc>,
     pub title: String,
     pub description: String,
-    pub thumbnail: Option<String>,
+    pub thumbnail: String,
 }
 
 impl<'a> TryFrom<&File<'a>> for OrgPost<'a> {
@@ -39,9 +40,10 @@ impl<'a> OrgPost<'a> {
             Utc,
         );
 
-        let thumbnail = properties
-            .get("THUMBNAIL")
-            .map(|thumbnail| thumbnail.to_string());
+        let thumbnail = match properties.get("THUMBNAIL") {
+            Some(token) => token.to_string(),
+            None => format!("{IMAGES_CDN}{DEFAULT_THUMBNAIL}"),
+        };
 
         Some(OrgPost {
             org,
