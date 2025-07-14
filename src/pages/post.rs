@@ -4,6 +4,7 @@ use leptos_router::hooks::use_params;
 use leptos_router::params::Params;
 
 use crate::components::GiscusComments;
+use crate::core::constants::DATETIME_FORMAT;
 use crate::core::OrgPost;
 use crate::POSTS_DIR;
 
@@ -30,7 +31,7 @@ pub fn Post() -> impl IntoView {
                         <div>
                             <div class="flex justify-end">
                                 <p class="text-sm text-base-content/70">
-                                    {org_post.created.format("%Y-%m-%d %H:%M").to_string()}
+                                    {org_post.created.format(DATETIME_FORMAT).to_string()}
                                 </p>
                             </div>
 

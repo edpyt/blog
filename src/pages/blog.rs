@@ -1,7 +1,10 @@
 use leptos::prelude::*;
 use leptos_router::components::A;
 
-use crate::{core::OrgPost, POSTS_DIR};
+use crate::{
+    core::{constants::DATETIME_FORMAT, OrgPost},
+    POSTS_DIR,
+};
 
 #[component]
 pub fn Blog() -> impl IntoView {
@@ -26,7 +29,7 @@ pub fn Blog() -> impl IntoView {
                                     </A>
                                 </h2>
                                 <span class="text-end text-sm text-base-content/70">
-                                    {org_post.created.format("%Y-%m-%d %H:%M").to_string()}
+                                    {org_post.created.format(DATETIME_FORMAT).to_string()}
                                 </span>
                             </div>
                             <p class="text-sm text-base-content/70">{org_post.description}</p>

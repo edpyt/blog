@@ -4,3 +4,6 @@ pub const IMAGES_CDN: &str =
 
 /// Fallback thumbnail for the blog homepage
 pub const DEFAULT_THUMBNAIL: &str = "pride-trans-thumb.png";
+
+/// DateTime format constant
+pub const DATETIME_FORMAT: &str = "%Y-%m-%d %H:%M";
