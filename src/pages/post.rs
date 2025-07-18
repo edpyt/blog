@@ -27,7 +27,7 @@ pub fn Post() -> impl IntoView {
             let result_view = match OrgPost::try_from(post_file) {
                 Ok(org_post) => view! {
                     <div class="flex flex-col gap-5">
-                        <div inner_html=org_post.content_html()></div>
+                        <div inner_html=org_post.content_html></div>
                         <div>
                             <div class="flex justify-end">
                                 <p class="text-sm text-base-content/70">

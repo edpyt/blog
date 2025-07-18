@@ -3,16 +3,18 @@ use chrono::{DateTime, NaiveDateTime, Utc};
 use include_dir::File;
 use orgize::Org;
 
-pub struct OrgPost<'a> {
-    org: Org,
-    pub filename: &'a str,
+#[derive(Clone)]
+pub struct OrgPost {
+    pub filename: String,
     pub created: DateTime<Utc>,
     pub title: String,
     pub description: String,
     pub thumbnail: String,
+    // FIXME: this field must be computed
+    pub content_html: String,
 }
 
-impl<'a> TryFrom<&File<'a>> for OrgPost<'a> {
+impl<'a> TryFrom<&File<'a>> for OrgPost {
     type Error = &'static str;
 
     fn try_from(file: &File<'a>) -> Result<Self, Self::Error> {
@@ -28,7 +30,7 @@ impl<'a> TryFrom<&File<'a>> for OrgPost<'a> {
     }
 }
 
-impl<'a> OrgPost<'a> {
+impl<'a> OrgPost {
     fn from_orgize_obj(org: Org, filename: &'a str) -> Option<Self> {
         let properties = org.document().properties()?;
 
@@ -48,16 +50,12 @@ impl<'a> OrgPost<'a> {
         };
 
         Some(OrgPost {
-            org,
-            filename,
+            filename: filename.to_string(),
             title,
             description,
             created,
             thumbnail,
+            content_html: org.to_html(),
         })
-    }
-
-    pub fn content_html(&self) -> String {
-        self.org.to_html()
     }
 }

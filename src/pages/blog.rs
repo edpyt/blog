@@ -2,22 +2,27 @@ use leptos::prelude::*;
 use leptos_router::components::A;
 
 use crate::{
+    components::PostsSort,
     core::{constants::DATETIME_FORMAT, OrgPost},
     POSTS_DIR,
 };
 
 #[component]
 pub fn Blog() -> impl IntoView {
-    let mut posts: Vec<OrgPost> = POSTS_DIR
-        .files()
-        .filter_map(|file| file.try_into().ok())
-        .collect();
-    posts.sort_by(|a, b| b.created.cmp(&a.created));
+    let posts = RwSignal::new(
+        POSTS_DIR
+            .files()
+            .filter_map(|file| file.try_into().ok())
+            .collect::<Vec<OrgPost>>(),
+    );
 
     view! {
-        {posts
-            .into_iter()
-            .map(|org_post| {
+        <PostsSort posts=posts />
+
+        <For
+            each=move || posts.read().clone()
+            key=|org_post| org_post.filename.clone()
+            children=move |org_post| {
                 view! {
                     <div class="py-6 flex flex-row gap-6 md:gap-10 items-start">
                         <img class="h-25 w-25 object-cover" src=org_post.thumbnail />
@@ -36,7 +41,7 @@ pub fn Blog() -> impl IntoView {
                         </div>
                     </div>
                 }
-            })
-            .collect::<Vec<_>>()}
+            }
+        />
     }
 }
