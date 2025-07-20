@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::core::constants::{DEFAULT_THUMBNAIL, IMAGES_CDN};
 use chrono::{DateTime, NaiveDateTime, Utc};
 use include_dir::File;
@@ -5,13 +7,12 @@ use orgize::Org;
 
 #[derive(Clone)]
 pub struct OrgPost {
+    org: Arc<Org>,
     pub filename: String,
     pub created: DateTime<Utc>,
     pub title: String,
     pub description: String,
     pub thumbnail: String,
-    // FIXME: this field must be computed
-    pub content_html: String,
 }
 
 impl<'a> TryFrom<&File<'a>> for OrgPost {
@@ -26,12 +27,12 @@ impl<'a> TryFrom<&File<'a>> for OrgPost {
             .unwrap();
         let org = Org::parse(file.contents_utf8().unwrap());
 
-        OrgPost::from_orgize_obj(org, filename).ok_or("Can't retrieve org_post struct from file")
+        OrgPost::new(org, filename).ok_or("Can't retrieve org_post struct from file")
     }
 }
 
-impl<'a> OrgPost {
-    fn from_orgize_obj(org: Org, filename: &'a str) -> Option<Self> {
+impl OrgPost {
+    fn new(org: Org, filename: &'_ str) -> Option<Self> {
         let properties = org.document().properties()?;
 
         // NOTE: required
@@ -50,12 +51,16 @@ impl<'a> OrgPost {
         };
 
         Some(OrgPost {
+            org: org.into(),
             filename: filename.to_string(),
             title,
             description,
             created,
             thumbnail,
-            content_html: org.to_html(),
         })
+    }
+
+    pub fn content_html(&self) -> String {
+        self.org.to_html()
     }
 }
