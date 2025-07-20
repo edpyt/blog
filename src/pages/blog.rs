@@ -17,7 +17,9 @@ pub fn Blog() -> impl IntoView {
     );
 
     view! {
-        <PostsSort posts=posts />
+        <div class="flex flex-row-reverse">
+            <PostsSort posts=posts />
+        </div>
 
         <For
             each=move || posts.read().clone()

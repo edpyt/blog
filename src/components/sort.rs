@@ -10,9 +10,9 @@ pub fn PostsSort(posts: RwSignal<Vec<OrgPost>>) -> impl IntoView {
     let newest_fn = move |_| newest_fn();
 
     view! {
-        <div class="flex items-center gap-2 mb-6">
+        <div class="flex items-center gap-2">
             <span class="text-sm font-medium">"Sort by:"</span>
-            <div class="dropdown dropdown-end">
+            <div class="dropdown dropdown-hover">
                 <div tabindex="0" role="button" class="btn btn-sm m-1">
                     Date
                     <svg
@@ -32,13 +32,17 @@ pub fn PostsSort(posts: RwSignal<Vec<OrgPost>>) -> impl IntoView {
                 </div>
                 <ul
                     tabindex="0"
-                    class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                 >
                     <li>
-                        <button on:click=newest_fn>"Newest first"</button>
+                        <button on:click=newest_fn onclick="document.activeElement.blur()">
+                            "Newest first"
+                        </button>
                     </li>
                     <li>
-                        <button on:click=oldest_fn>"Oldest first"</button>
+                        <button on:click=oldest_fn onclick="document.activeElement.blur()">
+                            "Oldest first"
+                        </button>
                     </li>
                 </ul>
             </div>
