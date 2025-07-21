@@ -3,6 +3,7 @@ use std::sync::Arc;
 use crate::core::constants::{DEFAULT_THUMBNAIL, IMAGES_CDN};
 use chrono::{DateTime, NaiveDateTime, Utc};
 use include_dir::File;
+use leptos::logging::log;
 use orgize::Org;
 
 #[derive(Clone)]
@@ -25,6 +26,7 @@ impl<'a> TryFrom<&File<'a>> for OrgPost {
             .expect("can't retrieve file name")
             .to_str()
             .unwrap();
+        log!("{filename}");
         let org = Org::parse(file.contents_utf8().unwrap());
 
         OrgPost::new(org, filename).ok_or("Can't retrieve org_post struct from file")

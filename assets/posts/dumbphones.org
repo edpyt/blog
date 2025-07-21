@@ -1,0 +1,72 @@
+:PROPERTIES:
+:TITLE: Dumbphones
+:DESCRIPTION: Something new for this blog
+:CREATED: 2025-07-21 00:00
+:THUMBNAIL: https://styles.redditmedia.com/t5_30lto/styles/communityIcon_r7os878dunwa1.png?width=128&frame=1&auto=webp&s=5caa3b055e9a6c6430e711a23a657eb715d2960c
+:END:
+
+* Dumbphones  
+  Today, I’d like to talk about [[https://reddit.com/r/dumbphones][dumbphones]].  
+  They’re truly an amazing thing—you don’t even realize how great it feels to be mentally shielded from doomscrolling, anxiety, and so on.  
+
+  Before this, like most people, I spent way too much time on my smartphone:  
+  watching YouTube videos, Twitch streams, and scrolling through social media.  
+  (Though, to be fair, I still don’t see much harm in it if done mindfully.)  
+
+  I didn’t discover dumbphones on my own. After watching a video by [[https://youtube.com/@jvscholz][jvscholz]] on YouTube (I won’t link it here), I decided to give them a try. \\ 
+  At first, I tried "dumbing down" my Android:  
+  - Installed *OLauncher*  
+  - Limited screen time using *Digital Wellbeing* (an Android feature)  
+
+  But even then, I still found myself occasionally glued to my phone. That’s when I started considering getting a feature phone with buttons.  
+
+** Qin F22 Pro  
+   While browsing [[https://reddit.com/@jvscholz][r/@jvscholz]] on Reddit (I’ll come back to digital minimalism later), I learned that people still use feature phones at all.  
+   After seeing James’ top picks for button phones, I ordered myself an *F22 Pro* 🙂.  
+
+   Well, after setting it up, my first impressions were:  
+   #+begin_example  
+   Life feels so much simpler—less anxiety, more freedom.  
+   #+end_example  
+
+   I’ve been using this phone for two months now. I traveled with it, paid for groceries via QR codes, and even took family photos on it 😅.  
+
+   Honestly, I’m really happy with this phone. It meets all my needs from a modern device, and I continue to use it mindfully.  
+
+*** Setup  
+    In this section, I’ll share how I configured this phone and what apps I installed.  
+    1. Install *Niagara Pro*  
+       Seriously, the best launcher for feature phones.  
+    2. Install [[https://github.com/austinauyeung/C9][C9]]  
+       The best app for cursor navigation using arrow keys.  
+    3. Set up *Button Key Mapper*  
+       I don’t remember the exact app name or settings, but it’s essential.  
+
+       I might add more details in the comments later.  
+
+* Digital Minimalism  
+  You know, even after switching to a dumb (well, technically *transient*) phone, I still caught myself doomscrolling on my computer—sometimes even during important work.  
+
+  At first, I didn’t pay much attention to it. I’d tell myself,  
+  "Just a few more minutes on this site, then I’ll start working."  
+  I also fell into the trap of "this is for learning" sites (Reddit, YouTube).  
+
+  What saved me was a tool (an alternative to Cold Turkey) called [[https://www.digitalzen.app/][DigitalZen]].  
+  (Not sponsored, but I wouldn’t mind—I should leave a review on their site.)  
+  I highly recommend trying it if you haven’t already.  
+
+** My Experience with DigitalZen  
+   Okay, I installed the extension—now what?  
+   Next, you customize it to fit your needs (which is super easy).  
+
+   My current setup:  
+   - A block from *6:00 AM to 1:00 PM* for studying  
+     (I can’t access any sites except study-related ones)  
+   - Focus time for coding  
+     A timer during which I can’t visit distracting sites  
+     (Only coding resources: GitHub, docs.rs, etc.)  
+
+   This workflow helps me stay productive and maintain focus.  
+   (Also, distractions are a fascinating topic on their own.)  
+
+   Thank you, DigitalZen! 😳😳😳  
