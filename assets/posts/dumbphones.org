@@ -1,7 +1,7 @@
 :PROPERTIES:
 :TITLE: Dumbphones
 :DESCRIPTION: Something new for this blog
-:CREATED: 2025-07-21 00:00
+:CREATED: 2025-07-23 00:00
 :THUMBNAIL: https://styles.redditmedia.com/t5_30lto/styles/communityIcon_r7os878dunwa1.png?width=128&frame=1&auto=webp&s=5caa3b055e9a6c6430e711a23a657eb715d2960c
 :END:
 
@@ -25,9 +25,9 @@
    After seeing James’ top picks for button phones, I ordered myself an *F22 Pro* 🙂.  
 
    Well, after setting it up, my first impressions were:  
-   #+begin_example  
+   #+begin_quote  
    Life feels so much simpler—less anxiety, more freedom.  
-   #+end_example  
+   #+end_quote    
 
    I’ve been using this phone for two months now. I traveled with it, paid for groceries via QR codes, and even took family photos on it 😅.  
 
@@ -35,11 +35,11 @@
 
 *** Setup  
     In this section, I’ll share how I configured this phone and what apps I installed.  
-    1. Install *Niagara Pro*  
+    1. Install *Niagara Pro*  \\
        Seriously, the best launcher for feature phones.  
-    2. Install [[https://github.com/austinauyeung/C9][C9]]  
+    2. Install [[https://github.com/austinauyeung/C9][C9]]   \\
        The best app for cursor navigation using arrow keys.  
-    3. Set up *Button Key Mapper*  
+    3. Set up *Button Key Mapper*  \\
        I don’t remember the exact app name or settings, but it’s essential.  
 
        I might add more details in the comments later.  
@@ -62,7 +62,7 @@
    My current setup:  
    - A block from *6:00 AM to 1:00 PM* for studying  
      (I can’t access any sites except study-related ones)  
-   - Focus time for coding  
+   - Focus time for coding  \\
      A timer during which I can’t visit distracting sites  
      (Only coding resources: GitHub, docs.rs, etc.)  
 
