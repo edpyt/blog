@@ -1,0 +1,86 @@
+:PROPERTIES:
+:TITLE: Dumbdroid
+:DESCRIPTION: Unofficial operating system for keypad smartphones. Based on Android 14 and LineageOS.
+:CREATED: 2025-11-10 16:06
+:THUMBNAIL: https://storage.ko-fi.com/cdn/useruploads/ca4ae9b6-1372-4016-8a30-613624f0f8b0_9683a17f-f6c5-429b-9256-9ee84aa7460e.png
+:END:
+
+* Dumbdroid
+
+** Project Goal
+   The goal of this project is to help people who are looking to replace their smartphone with a
+   more minimalist device, but want or need access to important apps, such as WhatsApp, 2-FA, banking
+   or mass transit.
+
+** How I Came to This
+   So, in a previous post, I wrote something about switching to dumbphones. \\
+   Well, after using such a phone for a few months, I noticed how quickly the battery drained.
+   Usually, during any activity (work, study, etc.), I try not to pick up my phone, but I might have a background process running (for example, Syncthing) that eats up almost all my battery by the end of the day.
+   Also, after googling this problem, I concluded that Google services can also consume those precious percentage points.
+
+   One day, while browsing [[https://www.reddit.com/r/dumbphones/][r/dumbphones]], I came across a post about how enthusiasts had built their own custom OS (based on LineageOS) in two versions: Google/un-Google(MicroG) for button Android phones (Qin F21 Pro, UNIWA Doov R77 Pro, Qin F22 Pro). \\
+
+   And there it was, just what I needed, I had to try this thing! :P
+
+** Installation
+   I'll describe my installation experience using [[https://docs.astral.sh/uv/][uv]], Arch Linux, Qin F22 Pro.
+   To install this OS, you will need to use the official guide: \\
+   [[https://shop.dumbdroid.eu/blogs/news/how-to-install-dumbdroid-on-a-compatible-device]]
+
+*** Tools
+    First, let's install the necessary tools:
+    - [[https://github.com/bkerler/mtkclient][mtkclient]]  \\
+      AUR packages: [[https://github.com/bkerler/mtkclient?tab=readme-ov-file#for-archlinux]]
+      #+begin_src sh
+      uv tool install git+https://github.com/bkerler/mtkclient
+      #+end_src
+
+      And be sure to do this: [[https://github.com/bkerler/mtkclient?tab=readme-ov-file#install-rules]]
+    - fastboot and ADB \\
+      [[https://archlinux.org/packages/extra/x86_64/android-tools/]]
+
+*** Flashing Qin F22 Pro
+    Enable [[https://www.ytechb.com/how-to-enable-usb-debugging-on-android-12/][USB Debugging]], completely power off your phone, and connect it to your computer/laptop.
+
+    Follow the official guide:
+    1. Backup
+       #+begin_src sh
+       mkdir stock_rom
+       mtk rl --skip userdata stock_rom
+       #+end_src
+       (here mtk should grab it, if not - try restarting your computer)
+    2. Unlock the bootloader \\
+       *This will factory reset your phone!*
+       #+begin_src sh
+       mtk e metadata,userdata,md_udc
+       mtk da seccfg unlock
+       #+end_src
+    3. Flash the new system \\
+       Without disconnecting the phone from the computer, turn it on and enable *USB Debugging* again. \\
+       Then run:
+       #+begin_src sh
+       adb reboot fastboot
+
+       # Erase data
+       fastboot erase userdata
+       fastboot erase metadata
+
+       # Flash Dumbdroid. Make sure you unpack the zip archive first!!!
+       fastboot flash system dumbdroid_???.img  # replace ??? with the actual filename
+
+       # Booting the system for the first time might take 5-10 minutes.
+       fastboot reboot
+       #+end_src
+
+** Impressions
+   I've been using this OS without Google for a week. So far, I like it and everything works.
+   I installed WhatsApp, a banking app, orgzly, Syncthing, Thunderbird for email.
+   I haven't found any problems.
+
+   The function of using parental controls to limit distracting apps works for me.
+
+   Just a wonderful project. 1000/10
+
+   By the way, they have their own shop where they sell ready-made phones, check it out:
+   [[https://shop.dumbdroid.eu/]]
+
