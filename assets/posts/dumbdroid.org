@@ -58,19 +58,19 @@
     3. Flash the new system \\
        Without disconnecting the phone from the computer, turn it on and enable *USB Debugging* again. \\
        Then run:
-       #+begin_src sh
-       adb reboot fastboot
+#+begin_src sh
+adb reboot fastboot
 
-       # Erase data
-       fastboot erase userdata
-       fastboot erase metadata
+# Erase data
+fastboot erase userdata
+fastboot erase metadata
 
-       # Flash Dumbdroid. Make sure you unpack the zip archive first!!!
-       fastboot flash system dumbdroid_???.img  # replace ??? with the actual filename
+# Flash Dumbdroid. Make sure you unpack the zip archive first!!!
+fastboot flash system dumbdroid_???.img  # replace ??? with the actual filename
 
-       # Booting the system for the first time might take 5-10 minutes.
-       fastboot reboot
-       #+end_src
+# Booting the system for the first time might take 5-10 minutes.
+fastboot reboot
+#+end_src
 
 ** Impressions
    I've been using this OS without Google for a week. So far, I like it and everything works.

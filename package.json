@@ -2,7 +2,7 @@
   "devDependencies": {
     "@catppuccin/daisyui": "^2.1.1",
     "@tailwindcss/typography": "^0.5.16",
-    "daisyui": "^5.0.43",
-    "tailwindcss": "^4.1.10"
+    "daisyui": "^5.4.7",
+    "tailwindcss": "^4.1.17"
   }
 }
