@@ -1,0 +1,43 @@
+:PROPERTIES:
+:TITLE: My productivity setup
+:DESCRIPTION: Here I describe a set of tools that I use for my productive work.
+:CREATED: 2025-11-19 16:15
+:END:
+
+* Productivity tools
+  Я использую следующие инструменты для повышения продуктивности:
+  - zen browser
+  - niri
+  - astronvim
+    - orgmode
+  - dretec timer
+
+  Буду описывать по порядку что да как, и почему тебе тоже следует попробовать это. 🙂
+** [[https://zen-browser.app/][Zen Browser]]
+   @@html:<video controls src="https://zen-browser.app/media/hero-video/video.webm"
+   </video>@@
+
+   Firefox-based браузер, с отдельными фишками, такими как:
+   - Multiple workspaces
+   - Essentials
+   - Glance
+
+   Особо много про него не могу сказать, просто очень удобный ⭐красивый⭐ минималистичный браузер, советую всем.
+** [[https://github.com/YaLTeR/niri][niri]]
+   @@html:
+   <video controls src="https://github.com/YaLTeR/niri/assets/1794388/bce834b0-f205-434e-a027-b373495f9729">
+   </video>@@
+
+   Это Wayland оконный менеджер (WM) с scrolling-tiling, написанный на Rust с использованием [[https://github.com/Smithay/smithay][smithay]].
+   (остальную информацию ищи в репозитории)
+
+   До этого я не был знаком с scrolling-tiling, но я быстро к нему привык и нахожу его самым удобным способом
+   взаимодействия с тайлинг окнами.
+
+   Очень быстро развивающийся, всего за несколько месяцев моего использования в нем появились очень полезные фичи,
+   такие как:
+   - [[https://github.com/YaLTeR/niri/wiki/Overview][Overview]]
+   - [[https://github.com/YaLTeR/niri/wiki/Configuration:-Recent-Windows][Recent windows (Alt-Tab)]]
+   - [[https://github.com/AvengeMedia/DankMaterialShell/][DankMaterialShell]]  \\
+     этот шелл объединяет в себе несколько инструментов, теперь я могу не устанавливать отдельные инструменты (waybar, swww, gtklock, etc.),
+     а использовать только один.

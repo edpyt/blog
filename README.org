@@ -1,8 +1,26 @@
 * edpyt's blog
 
 ** development
-   need to compile .css file with @tailwindcss/cli
-   #+begin_src fish
-   npm i -D tailwindcss daisyui
-   npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css
-   #+end_src
+   1. need to compile .css file with @tailwindcss/cli
+      #+begin_src shell
+      npm i -D tailwindcss daisyui
+      npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css
+      #+end_src
+   2. download neccessary tools:
+      #+begin_src shell
+      cargo install trunk
+      rustup target add wasm32-unknown-unknown
+      #+end_src
+   3. compile application
+      a. start application with:
+         #+begin_src shell
+         trunk serve --open
+         #+end_src
+      b. deploy application with:
+         #+begin_src shell
+         trunk build --release
+         #+end_src
+
+         see: [[https://book.leptos.dev/deployment/csr.html]]
+
+
