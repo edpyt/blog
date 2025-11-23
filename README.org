@@ -12,15 +12,15 @@
       rustup target add wasm32-unknown-unknown
       #+end_src
    3. compile application
-      a. start application with:
-         #+begin_src shell
-         trunk serve --open
-         #+end_src
-      b. deploy application with:
-         #+begin_src shell
-         trunk build --release
-         #+end_src
+      - start application with:
+        #+begin_src shell
+        trunk serve --open
+        #+end_src
+      - deploy application with:
+        #+begin_src shell
+        trunk build --release
+        #+end_src
 
-         see: [[https://book.leptos.dev/deployment/csr.html]]
+        see: [[https://book.leptos.dev/deployment/csr.html]]
 
 
