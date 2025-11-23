@@ -1,0 +1,69 @@
+:PROPERTIES:
+:TITLE: My productivity setup
+:DESCRIPTION: Here I describe a set of tools that I use for my productive work.
+:CREATED: 2025-11-19 16:15
+:END:
+
+* Productivity tools
+  My configurations can be found here: [[https://github.com/edpyt/dotfiles]]  \\
+  As of writing this post, this commit is used:  \\
+  [[https://github.com/edpyt/dotfiles/tree/f11f330be1c59148de0785efbdde04ca3c4655b4]]
+** [[https://zen-browser.app/][Zen Browser]]
+   @@html:<video controls src="https://zen-browser.app/media/hero-video/video.webm"
+   </video>@@
+
+   Firefox-based browser with unique features such as:
+   - Multiple workspaces
+   - Essentials
+   - Glance
+
+   Can't say much about it, it's just a very convenient ⭐beautiful⭐ minimalist browser, I recommend it to everyone.
+** [[https://github.com/YaLTeR/niri][niri]]
+   @@html:
+   <video controls src="https://github.com/YaLTeR/niri/assets/1794388/bce834b0-f205-434e-a027-b373495f9729">
+   </video>@@
+
+   This is a Wayland window manager (WM) with scrolling-tiling, written in Rust using [[https://github.com/Smithay/smithay][smithay]].
+   (look for the rest of the information in the repository)
+
+   I wasn't familiar with scrolling-tiling before, but I quickly got used to it and find it the most convenient way to interact with tiled windows.
+
+   Very fast developing, in just a few months of my use, very useful features have appeared, such as:
+   - [[https://github.com/YaLTeR/niri/wiki/Overview][Overview]]
+   - [[https://github.com/YaLTeR/niri/wiki/Configuration:-Recent-Windows][Recent windows (Alt-Tab)]]
+   - [[https://github.com/AvengeMedia/DankMaterialShell/][DankMaterialShell]]  \\
+     This shell combines several tools, so now I don't have to install separate tools (waybar, swww, gtklock, etc.), but can use just one.
+** [[https://github.com/AstroNvim/AstroNvim][astronvim]]
+
+   @@html:
+   <img src="https://camo.githubusercontent.com/38d3d14ce857cebafbbbeccc54db51996b518abaab356eed797791e66701e538/68747470733a2f2f617374726f6e76696d2e636f6d2f7468656d65732f6f766572766965772e706e67"/>@@
+
+   Custom neovim configuration. Why do I use a ready-made one instead of making my own configuration?
+   There are several reasons for this:
+   1. I'm lazy
+   2. Convenient configuration
+   3. Community support  \\
+      [[https://github.com/AstroNvim/astrocommunity/]]
+
+   Perhaps soon (when astronvim no longer meets my needs) I will switch to my own configuration...
+*** [[https://github.com/nvim-orgmode/orgmode/][neovim-orgmode]]
+    [[https://user-images.githubusercontent.com/1782860/123549968-8521f600-d76b-11eb-9a93-02bad08b37ce.gif]]
+
+    You can check out the showcase here: [[https://github.com/nvim-orgmode/orgmode/tree/9fdc30e05378691e8c51a22113fc22e30cdc14cc?tab=readme-ov-file#showcase][neovim-orgmode showcase]]
+
+    Actually, orgmode is an Emacs thing. A very high-quality clone was written for neovim (though I can't say how close it is to the original).
+    Before this, I used various tools for taking notes, calendar, and todo lists. This tool combined all of them.
+    To be honest, sometimes I can't stick strictly to the planned day, but I think it's because of my mindset and I need to get used to the tool.
+
+    I also use Syncthing and Orgzly for planning on my phone.  \\
+    Inspired by these videos:
+    - [[https://youtu.be/grbtRhFiPrw?si=eWO79trSXa-D2ah4][How I used Org-mode and Neovim to Pass all my Classes]]
+    - [[https://youtu.be/IZX-cDR6IQM?si=9lM70CMg1aj2mjjx][my productivity workflow 2023]]
+**  [[https://www.amazon.com/DRETEC-digital-timer-white-T-186WT/dp/B001B6RVNQ][Dretec T-186]]
+   Pomodoro timer 🙃  \\
+   @@html:
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/x0BSYlOhxm4?si=3N7h1FYsETMPsD6v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   @@
+** [[https://github.com/iSoron/uhabits][Loop Habit]]
+   Habit tracker with sticky notifications ([[https://github.com/iSoron/uhabits#features][Loop Habit Features]]). 
+   [[https://github.com/iSoron/uhabits/raw/dev/screenshots/4.thumb.png]]
